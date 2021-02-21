@@ -10,42 +10,42 @@
 
 <body>
     <!-- Start Quiz Button -->
-    <div id="start_btn"><button>Start Quiz</button></div>
+    <div class="buttons" id="start_btn"><button>Start Quiz</button></div>
 
     <!-- Info Box -->
-    <div class="info_box">
-        <div class="info_title">
-            <span>Some Rules of this Quiz</span>
+    <div class="boxes" id="info_box">
+        <div class="wrapper" id="info_title_wrapper">
+            <span class="title" id="info_title">Some Rules of this Quiz</span>
         </div>
-        <div class="info_list">
-            <div class="info">1. You will have only 60 seconds to complete the quiz.</div>
-            <div class="info">2. You'll get points on the basis of your correct answers.</div>
-            <div class="info">3. Ten seconds will be deducted from your time if you select an incorrect answer.</div>
-            <div class="info">4. Your answer is evaluated when you click your selection.</div>
-            <div class="info">5. You can't exit from the Quiz while you're playing.</div>
+        <div class="list" id="info_list">
+            <div class="info_li">1. You will have only <span>60 seconds</span> to complete the quiz.</div>
+            <div class="info_li">2. You'll get points on the basis of your correct answers.</div>
+            <div class="info_li">3. Ten seconds will be deducted from your time if you select an incorrect answer.</div>
+            <div class="info_li">4. Your answer is evaluated when you click your selection.</div>
+            <div class="info_li">5. You can't exit from the Quiz while you're playing.</div>
         </div>    
-        <div class="buttons">
-            <button class="quit">Exit Quiz</button>
-            <button class="restart">Continue</button>
+        <div class="buttons_wrapper">
+            <button class="buttons" id="quit">Exit Quiz</button>
+            <button class="buttons" id="restart">Continue</button>
         </div>
     </div>    
     <!-- Quiz Box -->
-    <div class="quiz_box">
+    <div class="boxes" id="quiz_box">
         <header>
-            <div class="title">The GOAT Quizzy</div>
+            <div id="quiz_title">The GOAT Quizzy</div>
                 <!-- Timer -->
-            <div id="timer">
-                <div id="time_text">Time Left</div>
+            <div class="wrapper" id="timer_wrapper">
+                <div id="timer_text">Time Left</div>
                 <div id="timer_sec">15</div>
             </div>
         </header>
         <section>    
                 <div class="quiz" id="questions"></div>
-                <div class="quiz" id="choices">
-                    <div class="user_pick"></div>
-                    <div class="user_pick"></div>
-                    <div class="user_pick"></div>
-                    <div class="user_pick"></div>
+                <div class="quiz" id="choice_list">
+                    <div class="choice_li"></div>
+                    <div class="choice_li"></div>
+                    <div class="choice_li"></div>
+                    <div class="choice_li"></div>
                 </div>
                 <div class="quiz" id="answers"></div>
         </section>
@@ -53,7 +53,7 @@
         <!-- Quiz Box Footer -->
         <footer>
             <div class="total_questions"></div>
-            <button class="nxt_btn"></button>
+            <button class="buttons" id="nxt_btn"></button>
         </footer>
     </div>
 

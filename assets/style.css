@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: rgb(32, 113, 157);
+}
+
+#start_btn,
+#next-btn,
+.boxes{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+#start_btn button{
+    font-size: 25px;
+    font-weight: 500px;
+    color: rgb(238, 106, 255);
+    padding: 15px 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: white;
+}
+
+#info_box{
+    /* display: none; */
+    width: 540px;
+    background: whitesmoke;
+    border-radius: 5px;
+}
+
+#info_box .wrapper .title{
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid rgb(118, 139, 114);
+    display: flex;
+    align-items: center; /* solve */
+    text-align: center; /* solve */
+    padding: 0 35px;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(61, 61, 61);
+}
+
+#info_box #info_list{
+    padding: 15px 35px;
+}
+
+#info_box #info_list .info_li{
+    margin: 5px 0;
+    font-size: 17px;
+    color: rgb(88, 88, 88);
+}
+
+.info_li span{
+    font-weight: 550;
+    text-shadow: 1px 1px 1px rgb(168, 226, 156);
+}
+
+#info_box .buttons {
+    height: 50px;
+    display:inline-flexbox; /* solve flex */
+    /* align-items: center; */
+    justify-content: flex-end;
+    padding: 0 35px;
+    border-top: 1px solid rgba(209, 207, 207, 0.822);
+}
+
+#info_box .buttons button{
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
+    border: 1px solid lightskyblue;
+    background: rgb(32, 113, 157);
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all o.3s ease;
+}
+
+#quiz_box{
+    display: none;
+}
