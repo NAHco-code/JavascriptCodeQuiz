@@ -37,7 +37,7 @@ body{
     border-radius: 5px;
 }
 
-#info_box .wrapper .title{
+.boxes .wrapper #info_title{
     height: 60px;
     width: 100%;
     border-bottom: 1px solid rgb(118, 139, 114);
@@ -57,36 +57,82 @@ body{
 #info_box #info_list .info_li{
     margin: 5px 0;
     font-size: 17px;
-    color: rgb(88, 88, 88);
+    color: rgb(52, 62, 71);
 }
 
 .info_li span{
     font-weight: 550;
-    text-shadow: 1px 1px 1px rgb(168, 226, 156);
+    text-shadow: 1px 1px  rgba(48, 155, 212, 0.685);
 }
 
-#info_box .buttons {
-    height: 50px;
-    display:inline-flexbox; /* solve flex */
-    /* align-items: center; */
+#info_box #buttons_wrapper{
+    display: flex;
+    flex-direction: row;
     justify-content: flex-end;
-    padding: 0 35px;
+    padding: 12px 35px;
     border-top: 1px solid rgba(209, 207, 207, 0.822);
 }
 
-#info_box .buttons button{
+#info_box #buttons_wrapper .buttons {
     margin: 0 5px;
     height: 40px;
     width: 100px;
-    border: 1px solid lightskyblue;
-    background: rgb(32, 113, 157);
+    border: 1px solid rgb(68, 145, 187);
     border-radius: 5px;
-    color: #ffffff;
     font-size: 16px;
     font-weight: 500;
-    transition: all o.3s ease;
+    transition: all 0.3s ease;
+}
+
+button#restart {
+    color: #ffffff;
+    background: rgb(68, 145, 187);
+}
+
+button#restart:hover {
+    background: rgb(32, 113, 157);
+}
+
+button#quit {
+    color: rgb(68, 145, 187);
+}
+
+button#quit:hover {
+    color: #ffffff;
+    background: rgb(32, 113, 157);
 }
 
 #quiz_box{
     display: none;
+    width: 550px;
+    background: #ffffff;
+    border-radius: 5px;
+}
+
+#quiz_box header{
+    position: relative;
+    z-index: 99;
+    height: 70px;
+    padding: 0 30px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+}
+
+.boxes #quiz_title{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.boxes .wrapper #timer_text{
+    font-weight: 500;
+    font-size: 18px;
+    height: 30px;
+    width: 45px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
 }
