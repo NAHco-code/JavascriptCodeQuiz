@@ -15,18 +15,20 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* dynamic transition */
     box-shadow: opx 4px 8px 0 rgba(0,0,0,0.2)
 }
 
-#info_box.activeInfo,
+/* when info box or quiz box is active: activate pointer events; bring to front; increase size; position in center of page*/ 
+#info_box.activeInfo, 
 #quiz_box.activeQuiz{
     z-index: 5;
-    opacity: 1;
-    pointer-events: auto;
-    transform: translate(-50%, -50%) scale(1);
+    opacity: 1; /* visible when activated */ 
+    pointer-events: auto;/* clickable when activated */
+    transform: translate(-50%, -50%) scale(1); /* bring to center of page when activated */
 }
 
+/* start button styling */
 #start_btn button{
     font-size: 25px;
     font-weight: 500px;
@@ -34,17 +36,17 @@ body{
     padding: 15px 30px;
     outline: none;
     border: none;
-    border-radius: 5px;
+    border-radius: 5px; /* round edges */
     background: white;
 }
 
 #info_box{
     width: 540px;
     background: whitesmoke;
-    border-radius: 5px;
-    opacity: 0;
-    pointer-events: none;
-    transform: translate(-50%, -50%) scale(0.9);
+    border-radius: 5px; /* round edges */
+    opacity: 0; /* invisible unless activated */ 
+    pointer-events: none;/* no pointer events unless activated */
+    transform: translate(-50%, -50%) scale(0.9); /* smaller than (1.0) when inactive) */
 }
 
 .boxes .wrapper #info_title{
@@ -99,7 +101,7 @@ button#restart_btn {
     background: rgb(68, 145, 187);
 }
 
-button#restart_btn:hover {
+button#restart_btn:hover { /* hover feature included for dynamic user experience */
     background: rgb(32, 113, 157);
 }
 
@@ -107,7 +109,7 @@ button#quit_btn {
     color: rgb(68, 145, 187);
 }
 
-button#quit_btn:hover {
+button#quit_btn:hover { /* hover feature included for dynamic user experience */
     color: #ffffff;
     background: rgb(32, 113, 157);
 }
@@ -116,8 +118,8 @@ button#quit_btn:hover {
     width: 550px;
     background: #ffffff;
     border-radius: 5px;
-    opacity: 0;
-    pointer-events: none;
+    opacity: 0; /* invisible unless activated */
+    pointer-events: none; /* no pointer events unless activated */
     transform: translate(-50%, -50%) scale(0.9);
 }
 
@@ -184,7 +186,7 @@ button#quit_btn:hover {
     display: block;
 }
 
-#quiz_wrapper #choice_list .choice_item{
+#quiz_wrapper #choice_list .choice_item{ /* style choice item divs */
     background:rgb(168, 226, 156);
     border: 1px solid rgb(142, 223, 126);
     border-radius: 5px;
@@ -197,9 +199,22 @@ button#quit_btn:hover {
     transition: all 0.3s ease;
 }
 
-#quiz_wrapper #choice_list .choice_item:hover{
+#quiz_wrapper #choice_list .choice_item:hover{ /* div color changes slightly on hover for more dynamic experience */
     background: rgba(121, 211, 103, 0.904);
     border-color: white;
+}
+
+#quiz_wrapper #choice_list .choice_item.correct{ /* div turns green if incorrect choice is selected - only applied to the choice item that was clicked*/
+    background: rgba(0, 128, 0, 0.726);
+    border-color: white;
+}
+#quiz_wrapper #choice_list .choice_item.incorrect{ /* div turns red if incorrect choice is selected - only applied to the choice item that was clicked*/
+    background: rgba(255, 0, 0, 0.671);
+    border-color: white;
+}
+
+#quiz_wrapper #choice_list .choice_item.disabled{ /* other choices are disabled on click of a choice*/
+    pointer-events: none;
 }
 
 #choice_list .choice_item:last-child{
@@ -243,9 +258,9 @@ button#nxt_btn:hover {
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    opacity: 0;
-    pointer-events: none;
-    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0; /* invisible unless activated */ 
+    pointer-events: none;/* no pointer events unless activated */
+    transform: translate(-50%, -50%) scale(0.9); /* smaller than (1.0) when inactive */ 
 }
 
 #result_box #complete_text {
