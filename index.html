@@ -20,13 +20,14 @@
         <div class="list" id="info_list">
             <div class="info_li">1. You will have only <span>60 seconds</span> to complete the quiz.</div>
             <div class="info_li">2. You'll get points on the basis of your correct answers.</div>
-            <div class="info_li">3. Ten seconds will be deducted from your time if you select an incorrect answer.</div>
+            <div class="info_li">3. Ten seconds will be deducted from your time if you <br> &ensp; 
+                &ensp; &ensp;select an incorrect answer.</div>
             <div class="info_li">4. Your answer is evaluated when you click your selection.</div>
-            <div class="info_li">5. You can't exit from the Quiz while you're playing.</div>
+            <div class="info_li">5. You can't exit the Quiz while you're playing.</div>
         </div>    
         <div class="wrapper" id="buttons_wrapper">
-            <button class="buttons" id="quit">Exit Quiz</button>
-            <button class="buttons" id="restart">Continue</button>
+            <button class="buttons" id="quit_btn">Exit Quiz</button>
+            <button class="buttons" id="restart_btn">Continue</button>
         </div>
     </div>    
     <!-- Quiz Box -->
@@ -40,12 +41,12 @@
             </div>
         </header>
         <section class="wrapper" id="quiz_wrapper">    
-                <div id="questions"></div>
+                <div id="questions"><span></span></div>
                 <div id="choice_list">
-                    <div class="choice_item"><span>Hyper Text Markup Language</span></div>
-                    <div class="choice_item"><span>Hyper Text Markup Language</span></div>
-                    <div class="choice_item"><span>Hyper Text Markup Language</span></div>
-                    <div class="choice_item"><span>Hyper Text Markup Language</span></div>
+                    <div class="choice_item"><span></span></div>
+                    <div class="choice_item"><span></span></div>
+                    <div class="choice_item"><span></span></div>
+                    <div class="choice_item"><span></span></div>
                 </div>
                 <div class="quiz" id="answers"></div>
         </section>
@@ -57,6 +58,16 @@
         </footer>
     </div>
 
+    <div class="boxes" id="result_box">
+        <div id="complete_text">You've completed the Quiz!</div>
+        <div id="score_text">
+            <span>You got <p>score</p>out of <p>total</p>!</span>
+        </div>
+        <div class="buttons">
+            <button id="restart_btn">Replay Quiz</button>
+            <button id="quit_btn">Quit Quiz</button>
+        </div>
+    </div>
 
     <div class="high_scores"></div>
     <script src="assets/script.js"></script>
