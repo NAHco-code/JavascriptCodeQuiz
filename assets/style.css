@@ -157,3 +157,28 @@ button#quit:hover {
     border: 1px solid rgb(52, 62, 71)
 }
 
+#quiz_box section #quiz_wrapper{
+    padding: 25px 30px 20px 30px;
+    background: white;
+}
+
+#quiz_wrapper #questions{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+#quiz_wrapper #choice_list{
+    padding: 20px 0;
+    display: block;
+}
+
+#quiz_wrapper #choice_list .choice_item{
+    background:rgb(168, 226, 156);
+    border: 1px solid #84c5fe;
+    border-radius: 5px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
