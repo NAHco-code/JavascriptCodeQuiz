@@ -103,7 +103,7 @@ button#quit:hover {
 }
 
 #quiz_box{
-    /* display: none; */
+    display: none;
     width: 550px;
     background: #ffffff;
     border-radius: 5px;
@@ -157,7 +157,7 @@ button#quit:hover {
     border: 1px solid rgb(52, 62, 71)
 }
 
-#quiz_box section #quiz_wrapper{
+#quiz_box #quiz_wrapper{
     padding: 25px 30px 20px 30px;
     background: white;
 }
@@ -168,17 +168,54 @@ button#quit:hover {
 }
 
 #quiz_wrapper #choice_list{
-    padding: 20px 0;
+    padding: 20px 0px;
     display: block;
 }
 
 #quiz_wrapper #choice_list .choice_item{
     background:rgb(168, 226, 156);
-    border: 1px solid #84c5fe;
+    border: 1px solid rgb(142, 223, 126);
     border-radius: 5px;
     padding: 8px 15px;
     margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#quiz_wrapper #choice_list .choice_item:hover{
+    background: rgba(121, 211, 103, 0.904);
+    border-color: white;
+}
+
+#choice_list .choice_item:last-child{
+    margin-bottom: 0px;
+}
+
+#quiz_box footer{
+    height: 60px;
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button#nxt_btn{
+    height: 40px;
+    padding: 0 13px;
+    font-size: 18px;
+    font-weight: 400;
+    border: 1px solid rgb(32, 113, 157);
+    border-radius: 5px;
+    color: white;
+    background:rgb(68, 145, 187);
+}
+
+
+button#nxt_btn:hover {
+    background: rgb(32, 113, 157);
+
 }
