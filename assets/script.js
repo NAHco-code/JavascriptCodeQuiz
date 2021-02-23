@@ -3,16 +3,16 @@ var quiz = [{ //quiz object
     number: 1,
     question: "Which one of these HTML tags can you write the JavaScript Code?",
     choices:
-        ["&lt;javascript&gt;",
-            "&lt;scripted&gt;",
-            "&lt;script&gt;",
-            "&lt;js&gt;"],
-    answer: "&lt;script&gt;",
+        ["&lt; javascript &gt;",
+            "&lt; scripted &gt;",
+            "&lt; script >",
+            "&lt; js &gt;"], //why is the right answer showing up wrong?
+    answer: "&lt; script >",
     explanation: "If you want to write inline JavaScript code, or link a Javascript file to your HTML file, you must use the `&lt;script&gt;` tag."
     },
     {
     number: 2,
-    question: "What's the correct JavaScript syntax to change the content of the following HTML code? :: &&lt;p> id=`geek`>GeeksforGeeks&lt;/p&gt;",
+    question: "What's the correct JavaScript syntax to change the content of the following HTML code?  `&lt;p> id=`geek`>GeeksforGeeks&lt;/p&gt;`",
     choices:
         ["document.getElement(“geek”).innerHTML=”I am a Geek”;",
             "document.getElementById(“geek”).innerHTML=”I am a Geek”;",
@@ -37,11 +37,11 @@ var quiz = [{ //quiz object
     number: 4,
     question: "What is the correct syntax for referring to an external script file called “allnighter.js”?",
     choices:
-            ["&lt;script src=”geek.js”&gt;",
-                "&lt;script href=”geek.js”&gt;",
-                "&lt;script ref=”geek.js”&gt;",
-                "&lt;script name=”geek.js”&gt;"],
-    answer: "&lt;script src=”geek.js”&gt;",
+            ["&lt;script src=”allnighter.js”&gt;",
+                "&lt;script href=”allnighter.js”&gt;",
+                "&lt;script ref=”allnighter.js”&gt;",
+                "&lt;script name=”allnighter.js”&gt;"],
+    answer: "&lt;script src=”allnighter.js”&gt;",
     explaination: "The “src” term is used to refer to any JavaScript file."
     },
     {
@@ -172,25 +172,23 @@ function choiceSelected(answer) { //define 'choice selected' function, and compa
 
 function compare(event) {
     var userChoice = event.target;
-    var userScore = document.querySelector('#score_text');
-    
+
     //correct condition
     if (userChoice == quiz[quizIndex].answer) {
-        let score = score++; 
-        userScore.textContent = "Code Wizard on the loose!!"
-        secondsLeft.textContent = seconds;
+        score = score++; 
+        
     } else {//incorrect condition
         //deduct -5 seconds off secondsLeft for wrong answers
-        // let seconds = (seconds - penalty);
-
-        userScore.textContent = "Sorry, you're WRONG! Study up!"
+        seconds = seconds - penalty;
     }
 }
 
 function questionCounter(index) { //define questionCounter function using quiz object index
-    const bottomQuestionCounter = quizBox.querySelector(".total_questions"); //link bottomQuestionCounter variable to total_questions div
-    let totalQuesCountText = '<span><p>' + questionCount + '</p>of<p>' + quiz.length + '</p>Questions</span>'; // specify where question count will appear
-    bottomQuestionCounter.innerHTML = totalQuesCountText; 
+    const questionNumEl = quizBox.querySelector("#question_num");
+    const questionTotalEl = quizBox.querySelector("#question_total")
+    let questionNumber = questionCount + 1;
+    questionNumEl.innerHTML = questionNumber; 
+    questionTotalEl.innerHTML = quiz.length; 
 }
     // choicesEl.addEventListener('click', (event) => { // add click event to all choices
     //     alert('you clicked the ' + (event.target.dataset.correct === 'true' ? 'correct' : 'wrong!') + ' button') // true false statement to evaluate if button the user clicked is correct

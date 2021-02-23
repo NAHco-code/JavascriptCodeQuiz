@@ -37,7 +37,7 @@
                 <!-- Timer -->
             <div class="wrapper" id="timer_wrapper">
                 <div id="timer_text">Time Left</div>
-                <div id="timer_sec">15</div>
+                <div id="timer_sec">--</div>
             </div>
         </header>
         <section class="wrapper" id="quiz_wrapper">    
@@ -53,8 +53,8 @@
 
         <!-- Quiz Box Footer -->
         <footer>
-            <div class="total_questions">
-                <span><p>2</p>of<p>5</p>Questions</span>
+            <div class="quiz_prog_tracker">
+                <div >Question <span id="question_num">--</span> of <span id= "question_total">--</span></div>
             </div>
             <button class="buttons" id="nxt_btn">Next</button>
         </footer>
@@ -63,7 +63,7 @@
     <div class="boxes" id="result_box">
         <div id="completed_quiz_text">You've completed the Quiz!</div>
         <div id="score_text">
-            <span>You got <p>score</p>out of <p>total</p>!</span>
+            <div id="result_msg">You got <span>--</span>out of <span>--</span> total</div>!</div>
         </div>
         <div class="buttons">
             <button id="restart_btn">Replay Quiz</button>

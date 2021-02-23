@@ -231,6 +231,10 @@ button#quit_btn:hover { /* hover feature included for dynamic user experience */
     justify-content: space-between;
 }
 
+#quiz_box footer div{
+    width: 100%;
+}
+
 button#nxt_btn{
     height: 40px;
     padding: 0 13px;
@@ -269,14 +273,15 @@ button#nxt_btn:hover {
     font-weight: 500;
 }
 
-#result_box #score_text span{
+#result_box #score_text #result_msg{
     display: flex;
-    margin: 10px 0;
     font-size: 18px;
     font-weight: 500;
+    margin: 10px 0;
+    width:fit-content;
 }
 
-#result_box #score_text span p{
+#result_box #score_text #result_msg span{
     font-weight: 600;
     padding: 0 4px;
 }
