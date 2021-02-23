@@ -42,6 +42,9 @@ const quizBox = document.querySelector('#quiz_box');
 const questionEl = document.querySelector('#questions');
 const choiceList = document.querySelector('#choice_list');
 
+const secondsLeft = quiz_box.querySelector('#timer_sec');
+const timerTextEl = quizBox.querySelector('#timer_text')
+
 
 //if start button clicked
 startBtn.onclick = ()=>{
@@ -59,16 +62,19 @@ continueBtn.onclick = ()=>{
     quizBox.classList.add("activeQuiz"); //show quiz box
     renderQuestion(0); //question in position 1
     questionCounter(1); //start question count at 1
+    startTimer(10);
 }
 
 let questionCount = 0;//start with question in position 1
 let questionNumber = 1; //start with question 1
+let timerInterval; //start with undefined timer count
+let seconds = 60; //start timer with 60 sec
 
 nxt_btn.onclick = () => { //if next button is clicked
     if (questionCount < quiz.length - 1) {
         questionCount++; //increase question count
         questionNumber++; //increase number count
-        renderQuestion(questionCount); //call both funtions simultaneously
+        renderQuestion(questionCount); //call following funtions simultaneously
         questionCounter(questionNumber);
     } else { // if the question count is not less than the quiz length
         console.log("You've completed the Quiz!");
@@ -105,11 +111,32 @@ function choiceSelected(answer) { //define 'choice selected' function, and compa
     } else {
         answer.classList.add("incorrect"); //add css selector to show red if wrong selection is made
         console.log("Answer is Wrong");
+
+        //if answer is incorrect, automatically show correct answer
+        for (let i = 0; i < allChoices; i++){
+            if (choiceList.children[i].textContent == correctAnswer) {
+                choiceList.children[i].setAttribute("class", "choice_item correct");
+            }
+        }
     }
     
     for (let i = 0; i < allChoices; i++) {// once user selects, disable all options
         choiceList.children[i].classList.add("disabled"); //disable pointer events when a selection is made
     }
+}
+
+function startTimer(seconds) { //define startTimer function
+    count = setInterval(timer, 1000);
+    timerTextEl.innerHTML = "Time Left"
+    function timer() {
+        secondsLeft.textContent = seconds;
+        seconds--;
+        if (seconds < 1) {
+            clearInterval(count);
+            secondsLeft.textContent = "00";
+            timerTextEl.innerHTML = "Time's Up!";
+        }
+    }        
 }
 
 

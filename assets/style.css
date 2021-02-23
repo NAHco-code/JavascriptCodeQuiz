@@ -155,7 +155,8 @@ button#quit_btn:hover { /* hover feature included for dynamic user experience */
 
 #quiz_box #timer_wrapper #timer_text{
     font-weight: 400;
-    font-size: 17px;
+    font-size: 16px;
+    padding-left: 2px;
 }
     
 #quiz_box #timer_wrapper #timer_sec{
