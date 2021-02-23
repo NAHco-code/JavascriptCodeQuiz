@@ -1,33 +1,55 @@
 //global 
 var quiz = [{ //quiz object
     number: 1,
-    question: "question 1",
-    choices: ["a option ", "correct ", "c option ", "d option "],
-    answer: "correct "
+    question: "Which one of these HTML tags can you write the JavaScript Code?",
+    choices:
+        ["&lt;javascript&gt;",
+            "&lt;scripted&gt;",
+            "&lt;script&gt;",
+            "&lt;js&gt;"],
+    answer: "&lt;script&gt;",
+    explanation: "If you want to write inline JavaScript code, or link a Javascript file to your HTML file, you must use the `&lt;script&gt;` tag."
     },
     {
     number: 2,
-    question: "question 2",
-    choices: ["a option ", "b option ", "c option ", "correct "],
-    answer: "correct "
+    question: "What's the correct JavaScript syntax to change the content of the following HTML code? :: &&lt;p> id=`geek`>GeeksforGeeks&lt;/p&gt;",
+    choices:
+        ["document.getElement(“geek”).innerHTML=”I am a Geek”;",
+            "document.getElementById(“geek”).innerHTML=”I am a Geek”;",
+            "document.getId(“geek”)=”I am a Geek”;",
+            "document.getElementById(“geek”).innerHTML=I am a Geek;"],
+    answer: "document.getElementById(“geek”).innerHTML=”I am a Geek”;",
+    explanation: "The correct syntax to access the element is document.getElementById(“geek”). Here we want to access the content written under that id, so we used .innerHTML to specify that and finally we replaced the content with whatever is written inside the quotes."
     },
-    {
+    
+{
     number: 3,
-    question: "question 3",
-    choices: ["a option ", "b option ", "correct ", "d option "],
-    answer: "correct "
+    question: "Which of the following is the correct syntax to display “NerdsforNerds” in an alert box using JavaScript?",
+    choices:
+        ["alertbox(“NerdsforNerds”);",
+            "msg(“NerdsforNerds”);",
+            "msgbox(“NerdsforNerds”);",
+            "alert(“NerdsforNerds”);"],
+    answer: "alert(“NerdsforNerds”);",
+    explanation: "To display any text in the alert box, you need to write it as alert(“NerdsforNerds”);."
     },
     {
     number: 4,
-    question: "question 4",
-    choices: ["correct ", "b option ", "c option ", "d option "],
-    answer: "correct "
+    question: "What is the correct syntax for referring to an external script file called “allnighter.js”?",
+    choices:
+            ["&lt;script src=”geek.js”&gt;",
+                "&lt;script href=”geek.js”&gt;",
+                "&lt;script ref=”geek.js”&gt;",
+                "&lt;script name=”geek.js”&gt;"],
+    answer: "&lt;script src=”geek.js”&gt;",
+    explaination: "The “src” term is used to refer to any JavaScript file."
     },
     {
     number: 5,
-    question: "question 5",
-    choices: ["a option ", "correct ", "c option ", "d option "],
-    answer: "correct "
+    question: "The external JavaScript file must contain  &lt;script&gt; tag. True or False?",
+    choices: ["True", "False", "Maybe", "Null"],
+    answer: "False",
+    explanation: "It is not necessary for any external javascript file to have &lt;script&gt; tag."
     },
 ];
 
@@ -41,10 +63,19 @@ const quizBox = document.querySelector('#quiz_box');
 
 const questionEl = document.querySelector('#questions');
 const choiceList = document.querySelector('#choice_list');
+const choice = choiceList.querySelectorAll(".choice_item");
 
-const secondsLeft = quiz_box.querySelector('#timer_sec');
-const timerTextEl = quizBox.querySelector('#timer_text')
+var secondsLeft = quiz_box.querySelector('#timer_sec');
+var timerTextEl = quizBox.querySelector('#timer_text')
 
+var score = 0;
+var penalty = 5;
+var newList = document.createElement("ul"); //create element for compare function
+let quizIndex = 0;
+let questionCount = 0;//start with question in position 1
+let questionNumber = 1; //start with question 1
+var timerInterval; //start with undefined timer count
+var seconds = 61; //start timer with 60 sec
 
 //if start button clicked
 startBtn.onclick = ()=>{
@@ -60,15 +91,11 @@ exitBtn.onclick = ()=>{
 continueBtn.onclick = ()=>{
     infoBox.classList.remove("activeInfo"); //hide info box
     quizBox.classList.add("activeQuiz"); //show quiz box
+    startTimer(seconds);
     renderQuestion(0); //question in position 1
     questionCounter(1); //start question count at 1
-    startTimer(10);
+    
 }
-
-let questionCount = 0;//start with question in position 1
-let questionNumber = 1; //start with question 1
-let timerInterval; //start with undefined timer count
-let seconds = 60; //start timer with 60 sec
 
 nxt_btn.onclick = () => { //if next button is clicked
     if (questionCount < quiz.length - 1) {
@@ -79,6 +106,19 @@ nxt_btn.onclick = () => { //if next button is clicked
     } else { // if the question count is not less than the quiz length
         console.log("You've completed the Quiz!");
     }    
+}
+
+function startTimer(seconds) { //define startTimer function
+    timerInterval = setInterval(function () {
+        timerTextEl.innerHTML = "Time Left"
+        seconds--;
+        secondsLeft.textContent = seconds;
+        
+        if (seconds < 1) {
+            secondsLeft.textContent = "00";
+            timerTextEl.innerHTML = "Time's Up!";
+        }
+    }, 1000);      
 }
 
 // getting questions and choices from array
@@ -92,14 +132,19 @@ function renderQuestion(index) { //define renderQuestion function
         + '<div class="choice_item"><span>' + quiz[index].choices[3] + '</span></div>';
     
     questionEl.innerHTML = questionText; //set question text to display in DOM
-    choiceList.innerHTML = choicesText; //set choices text to display in each choice element in 
+    choiceList.innerHTML = choicesText; //set choices text to display in each choice element in DOM
 
     //set new constant variable choice to link to each choice item in DOM
     const choice = choiceList.querySelectorAll(".choice_item");
     for (let i = 0; i < choice.length; i++) { //when a choice is clicked - set choice user clicks to 'choice selected' 
         choice[i].setAttribute("onclick", "choiceSelected(this)");
+        // choice[i].addEventListener("click", (compare));
     }
-}
+    // 
+    choice.forEach(function(choiceSelected) {
+        choiceSelected.addEventListener("click", (compare));
+    })
+}   
 
 function choiceSelected(answer) { //define 'choice selected' function, and compare with correct answer
     let userAnswer = answer.textContent;
@@ -125,20 +170,22 @@ function choiceSelected(answer) { //define 'choice selected' function, and compa
     }
 }
 
-function startTimer(seconds) { //define startTimer function
-    count = setInterval(timer, 1000);
-    timerTextEl.innerHTML = "Time Left"
-    function timer() {
+function compare(event) {
+    var userChoice = event.target;
+    var userScore = document.querySelector('#score_text');
+    
+    //correct condition
+    if (userChoice == quiz[quizIndex].answer) {
+        let score = score++; 
+        userScore.textContent = "Code Wizard on the loose!!"
         secondsLeft.textContent = seconds;
-        seconds--;
-        if (seconds < 1) {
-            clearInterval(count);
-            secondsLeft.textContent = "00";
-            timerTextEl.innerHTML = "Time's Up!";
-        }
-    }        
-}
+    } else {//incorrect condition
+        //deduct -5 seconds off secondsLeft for wrong answers
+        // let seconds = (seconds - penalty);
 
+        userScore.textContent = "Sorry, you're WRONG! Study up!"
+    }
+}
 
 function questionCounter(index) { //define questionCounter function using quiz object index
     const bottomQuestionCounter = quizBox.querySelector(".total_questions"); //link bottomQuestionCounter variable to total_questions div
