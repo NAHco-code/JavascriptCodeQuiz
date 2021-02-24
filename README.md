@@ -10,7 +10,7 @@ This app features dynamically updated HTML and CSS and is powered by JavaScript.
 
 ## Bug Fix Road Map
 
-Timer stops when user selects first answer. High scores feature is currently unavailable. Question counter not styled. Result Box not enabled.
+Timer is currently set to 10 for testing. Working on timer penalty for incorrect answers. High scores feature is currently unavailable. Question counter not styled. Result Box not enabled.
 
 ### Visuals
 
@@ -19,3 +19,7 @@ Timer stops when user selects first answer. High scores feature is currently una
 ![screenshotQuizRules](./assets/images/quiz_rules.png)
 
 ![screenshotQuiz](./assets/images/quiz_interface.png)
+
+### Links
+
+[DeployedApp] (<https://nahco-code.github.io/JavascriptCodeQuiz/>)
